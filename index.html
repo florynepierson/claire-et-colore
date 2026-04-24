@@ -297,15 +297,19 @@
 
 .about-img {
   width: 340px;
-  flex-shrink: 0;
   position: relative;
 }
 
-/* image devant */
-.img-front {
+/* base commune pour éviter étirement */
+.about-img img {
   width: 100%;
+  height: auto;
   display: block;
   border-radius: 8px;
+}
+
+/* image de devant */
+.img-front {
   position: relative;
   z-index: 2;
   filter: brightness(0.97) saturate(0.92);
@@ -314,14 +318,12 @@
 /* image derrière */
 .img-back {
   position: absolute;
+  top: 18px;
+  left: -18px;
   width: 100%;
-  top: 20px;
-  left: -20px;
-  border-radius: 8px;
   z-index: 1;
   opacity: 0.85;
 }
-
   /* ─── SERVICES / TARIFS ─── */
   .services { background: var(--warm-white); }
 
