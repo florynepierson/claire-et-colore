@@ -300,7 +300,6 @@
   position: relative;
 }
 
-/* base commune pour éviter étirement */
 .about-img img {
   width: 100%;
   height: auto;
@@ -308,21 +307,23 @@
   border-radius: 8px;
 }
 
-/* image de devant */
 .img-front {
   position: relative;
   z-index: 2;
+  border: 4px solid #f7f3ef;
   filter: brightness(0.97) saturate(0.92);
 }
 
-/* image derrière */
 .img-back {
   position: absolute;
-  top: 18px;
-  left: -18px;
+  top: 28px;
+  left: -28px;
   width: 100%;
   z-index: 1;
-  opacity: 0.85;
+  opacity: 0.95;
+  transform: scale(0.98);
+  filter: brightness(0.9) saturate(0.85);
+  border-radius: 8px;
 }
   /* ─── SERVICES / TARIFS ─── */
   .services { background: var(--warm-white); }
