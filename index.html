@@ -297,14 +297,16 @@
 
 .about-img {
   width: 340px;
-  border-radius: 4px;
-  background: red; 
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden; /* ✅ tu peux le remettre */
 }
 
 .about-img img {
   width: 100%;
   height: auto;
   display: block;
+  filter: brightness(0.97) saturate(0.92);
 }
 
   /* ─── SERVICES / TARIFS ─── */
