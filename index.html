@@ -271,7 +271,7 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: 12px;
   object-fit: cover;
   filter: brightness(0.98) saturate(0.92);
 }
@@ -303,6 +303,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
   }
  
   .info-badge {
@@ -383,6 +384,25 @@
     .atelier-photo { order: -1; }
   }
 
+  /* ─── PILLARS ─── */
+  .pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pillar {
+  position: relative;
+  padding-left: 18px;
+}
+
+.pillar::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
   
   /* ─── SERVICES / TARIFS ─── */
   .services { background: var(--warm-white); }
