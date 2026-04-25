@@ -227,6 +227,9 @@
 
 
   /* ─── GALLERY STRIP ─── */
+
+
+  
 .gallery-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.2rem;
@@ -263,6 +266,21 @@
     position: relative;
   }
 
+  /* tablette */
+  @media (max-width: 768px) {
+  .gallery-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+
+@media (max-width: 480px) {
+  .gallery-strip {
+    grid-template-columns: 1fr;
+  }
+}
+  
   /* ─── SECTION SHARED ─── */
   section { padding: 90px 40px; }
 
@@ -1100,29 +1118,6 @@
     <h2 class="section-title">Réserver <em>votre séance</em></h2>
     <p class="section-sub">Remplissez le formulaire ci-dessous ou contactez-moi directement. Je vous confirme votre créneau dans les plus brefs délais.</p>
 
-    <div class="booking-options">
-      <a href="https://wa.me/33631220573" target="_blank" class="booking-option">
-        <div class="booking-option-icon">💬</div>
-        <div class="booking-option-title">WhatsApp</div>
-        <div class="booking-option-desc">Message direct au 06 31 22 05 73 <br> Réponse rapide</div>
-      </a>
-      <a href="tel:0631220573" class="booking-option">
-        <div class="booking-option-icon">📞</div>
-        <div class="booking-option-title">Appel téléphonique</div>
-        <div class="booking-option-desc">06 31 22 05 73 · Lun–Ven 9h–19h</div>
-      </a>
-      <a href="https://www.instagram.com/claire_et_colore" target="_blank" class="booking-option">
-        <div class="booking-option-icon">📸</div>
-        <div class="booking-option-title">Instagram</div>
-        <div class="booking-option-desc">@claire_et_colore <br> Pour réserver ou pour de l'inspiration</div>
-      </a>
-      <a href="mailto:claireetcolore@gmail.com" class="booking-option">
-        <div class="booking-option-icon">✉️</div>
-        <div class="booking-option-title">E-mail</div>
-        <div class="booking-option-desc">claireetcolore@gmail.com</div>
-      </a>
-    </div>
-
     <div class="booking-form">
       <h3>Demande de réservation en ligne</h3>
       <div id="bookingFormContent">
@@ -1190,6 +1185,30 @@
       </div>
     </div>
   </div>
+
+    <div class="booking-options">
+      <a href="https://wa.me/33631220573" target="_blank" class="booking-option">
+        <div class="booking-option-icon">💬</div>
+        <div class="booking-option-title">WhatsApp</div>
+        <div class="booking-option-desc">Message direct au 06 31 22 05 73 <br> Réponse rapide</div>
+      </a>
+      <a href="tel:0631220573" class="booking-option">
+        <div class="booking-option-icon">📞</div>
+        <div class="booking-option-title">Appel téléphonique</div>
+        <div class="booking-option-desc">06 31 22 05 73 · Lun–Ven 9h–19h</div>
+      </a>
+      <a href="https://www.instagram.com/claire_et_colore" target="_blank" class="booking-option">
+        <div class="booking-option-icon">📸</div>
+        <div class="booking-option-title">Instagram</div>
+        <div class="booking-option-desc">@claire_et_colore <br> Pour réserver ou pour de l'inspiration</div>
+      </a>
+      <a href="mailto:claireetcolore@gmail.com" class="booking-option">
+        <div class="booking-option-icon">✉️</div>
+        <div class="booking-option-title">E-mail</div>
+        <div class="booking-option-desc">claireetcolore@gmail.com</div>
+      </a>
+    </div>
+  
 </section>
 
 <!-- ─── AVIS ─── -->
