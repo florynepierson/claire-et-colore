@@ -1314,9 +1314,6 @@ function submitBooking() {
     return;
   }
 
-  document.getElementById('bookingFormContent').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-
   // Build WhatsApp message
   const lname = document.getElementById('lname').value;
   const time = document.getElementById('time').value;
@@ -1324,9 +1321,13 @@ function submitBooking() {
   const msg = encodeURIComponent(
     `Bonjour Claire ! Je souhaite prendre rendez-vous.\n\nNom : ${fname} ${lname}\nTéléphone : ${phone}\nPrestation : ${service}\nDate souhaitée : ${date}${time ? '\nCréneau : ' + time : ''}${message ? '\n\nMessage : ' + message : ''}\n\nMerci !`
   );
+
   setTimeout(() => {
-    window.open(`https://wa.me/33638482539?text=${msg}`, '_blank');
-  }, 800);
+  window.open(`https://wa.me/33631220573?text=${msg}`, '_blank');
+  
+  document.getElementById('bookingFormContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}, 500);
 }
 
 // Set min date for booking to today
