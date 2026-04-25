@@ -150,7 +150,7 @@ body {
   inset: 0; 
   background-image:url('/images/logo.png');
   background-size: cover;
-    background-position: center 35%;
+    background-position: 50% 35%;
     z-index: 0;
   }
 
@@ -578,6 +578,7 @@ section {
   display: flex;
   align-items: center;
   gap: 70px;
+  overflow: hidden;
 }
 
 .hygiene-photo {
@@ -611,16 +612,19 @@ section {
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .qui-wrapper,
-    .atelier-wrapper {
+    .atelier-wrapper,
+    .hygiene-wrapper {
       flex-direction: column;
       gap: 36px;
     }
     .qui-photo-wrap,
-    .atelier-photo {
+    .atelier-photo,
+    .hygiene-photo {
       width: 100%;
     }
     .qui-photo-wrap img,
-    .atelier-photo img {
+    .atelier-photo img,
+    .hygiene-photo {
       height: 280px;
     }
     /* Sur mobile, la photo atelier passe en haut */
