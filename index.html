@@ -225,16 +225,48 @@
     transform: translateY(-2px);
   }
 
+/* ─── CONTAINER ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-  /* ─── GALLERY STRIP ─── */
+/* ─── SECTION SHARED ─── */
+section {
+  padding: 50px 15px;
+}
 
+.section-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
 
-  
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1.15;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--brown-light);
+}
+
+/* ─── GALLERY TITLE ─── */
 .gallery-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.2rem;
   text-align: center;
-  margin: 100px 0 30px 0;
+  margin: 60px 0 20px;
   color: var(--text);
 }
 
@@ -242,99 +274,72 @@
   color: var(--gold);
   font-style: italic;
 }
-  
+
+/* ─── GALLERY STRIP ─── */
+.gallery-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.gallery-strip img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.98) saturate(0.9);
+}
+
+.gallery-strip img:hover {
+  transform: scale(1.05);
+  filter: brightness(1) saturate(1.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── TABLETTE ─── */
+@media (min-width: 480px) {
   .gallery-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    margin-top: 40px;
-    overflow: hidden;
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-strip img {
-    width: 100%; aspect-ratio: 1;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-    filter: brightness(0.98) saturate(0.9);
-  }
-
-  .gallery-strip img:hover {
-    transform: scale(1.05);
-    filter: brightness(1) saturate(1.05);
-    z-index: 2;
-    position: relative;
-  }
-
-/* tablette + mobile large */
-@media (max-width: 768px) {
-  .gallery-strip {
-    grid-template-columns: repeat(2, 1fr);
+    aspect-ratio: 1;
   }
 
   section {
     padding: 60px 20px;
   }
 
-  .container {
-    max-width: 100%;
-    padding: 0 10px;
+  .gallery-title {
+    margin-top: 80px;
   }
 }
 
-/* mobile */
-@media (max-width: 480px) {
+/* ─── DESKTOP ─── */
+@media (min-width: 768px) {
   .gallery-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 40px;
   }
 
-  .gallery-strip img {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-  
   section {
-    padding: 50px 15px;
+    padding: 90px 40px;
   }
 
   .container {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-}
-  
-  /* ─── SECTION SHARED ─── */
-  section { padding: 90px 40px; }
-
-  .section-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-    font-family: 'Nunito', sans-serif;
+    padding: 0 40px;
   }
 
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    color: var(--brown);
-    line-height: 1.15;
-    margin-top: 40px;
+  .gallery-title {
+    margin-top: 100px;
     margin-bottom: 30px;
   }
-
-  .section-title em {
-    font-style: italic;
-    color: var(--brown-light);
-  }
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
 }
+  
   
   /* ─── QUI SUIS-JE ─── */
   .qui-wrapper {
