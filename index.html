@@ -1507,10 +1507,10 @@ document.addEventListener('dragstart', function(e) {
       </div>
     </div>
   </div>
-
+  <br>
   <p class="section-sub">Si un acompte est demandé celui ci viendra en déduction du prix de la prestation, si le rendez-vous n'est pas honoré par la cliente l'acompte sera conservé par le prestataire.
 Un rendez vous est annulable 48h à l'avance</p>
-
+  <br>
   <div class="booking-options">
     <a href="https://wa.me/33631220573" target="_blank" class="booking-option">
       <div class="booking-option-icon">💬</div>
@@ -1629,8 +1629,55 @@ Un rendez vous est annulable 48h à l'avance</p>
     <a href="mailto:claireetcolore@gmail.com">E-mail</a>
     <a href="tel:0631220573">06 31 22 05 73</a>
   </div>
-  <div class="footer-bottom">© 2025 Claire &amp; Coloré · 5 Rue Jean de la Bruyère, 51100 Reims · Tous droits réservés</div>
+  <div class="footer-bottom">
+    © 2025 Claire &amp; Coloré · 5 Rue Jean de la Bruyère, 51100 Reims · Tous droits réservés
+    <br>
+    <button class="footer-legal-link" onclick="openLegal()">Mentions légales</button>
+  </div>
 </footer>
+
+
+<!-- ─── MODALE MENTIONS LÉGALES ─── -->
+<div class="legal-overlay" id="legalOverlay" onclick="closeLegalOnOverlay(event)">
+  <div class="legal-modal">
+    <button class="legal-modal-close" onclick="closeLegal()">&#x2715;</button>
+    <h2>Mentions légales</h2>
+ 
+    <div class="legal-block">
+      <h3>Éditrice du site</h3>
+      <p>
+        Jeremita Claire<br>
+        Auto-entrepreneur<br>
+        SIRET : 888 737 293 00017<br>
+        5 rue Jean de la Bruyère, 51100 Reims<br>
+        <a href="mailto:claireetcolore@gmail.com">claireetcolore@gmail.com</a>
+      </p>
+    </div>
+ 
+    <div class="legal-block">
+      <h3>TVA</h3>
+      <p>TVA non applicable — article 293 B du CGI</p>
+    </div>
+ 
+    <div class="legal-block">
+      <h3>Assurance professionnelle</h3>
+      <p>
+        Claire et Coloré est couvert par une assurance responsabilité civile professionnelle souscrite auprès de la compagnie Allianz.<br>
+        Numéro de contrat : 61719350
+      </p>
+    </div>
+ 
+    <div class="legal-block">
+      <h3>Hébergeur</h3>
+      <p>
+        Vercel Inc.<br>
+        440 N Baxter Ave, San Francisco, CA 94107, États-Unis<br>
+        <a href="https://vercel.com" target="_blank">vercel.com</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <!-- ─── FLOATING BUTTONS ─── -->
 <div class="float-buttons">
