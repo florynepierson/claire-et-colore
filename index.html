@@ -624,6 +624,42 @@
     margin-bottom: 24px;
   }
 
+  /* ─── SALON ─── */
+  .salon-wrapper {
+    max-width: 1100px;
+    margin: 60px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .salon-text {
+    flex: 1;
+  }
+
+  .salon-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.12rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+
+  .salon-photo {
+    flex-shrink: 0;
+    width: 340px;
+  }
+
+  .salon-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+    filter: brightness(0.98) saturate(0.92);
+  }
+
   /* ─── PILLARS ─── */
   .pillars {
     display: flex;
@@ -1214,20 +1250,23 @@
 
     .qui-wrapper,
     .atelier-wrapper,
-    .hygiene-wrapper {
+    .hygiene-wrapper,
+    .salon-wrapper {
       flex-direction: column;
       gap: 36px;
     }
 
     .qui-photo-wrap,
     .atelier-photo,
-    .hygiene-photo {
+    .hygiene-photo,
+    .salon-photo {
       width: 100%;
     }
 
     .qui-photo-wrap img,
     .atelier-photo img,
-    .hygiene-photo img {
+    .hygiene-photo img,
+    .salon-photo img {
       height: 280px;
       object-fit: cover;
     }
@@ -1340,6 +1379,19 @@
         afin de garantir une hygiène irréprochable et la sécurité de chaque
         cliente.
       </p>
+    </div>
+  </div>
+
+  <!-- ─── SALON ─── -->
+  <div class="salon-wrapper">
+    <div class="salon-text">
+      <p class="section-label">L'Espace</p>
+      <p>
+        Je vous offre un espace bienveillant dans une atmosphère douce et chaleureuse pensée rien que pour vous. Je serais à l'écoute pour votre bien-être et soucieuse de la beauté de vos ongles.
+      </p>
+    </div>
+    <div class="salon-photo">
+      <img src="/images/salon.jpeg" alt="Le salon Claire & Coloré" />
     </div>
   </div>
 </section>
