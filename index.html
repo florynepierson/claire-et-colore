@@ -705,6 +705,20 @@
     padding-bottom: 0;
   }
 
+  .fusion-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.15;
+    margin: 8px 0 12px;
+  }
+
+  .fusion-title em {
+    font-style: italic;
+    color: var(--brown-light);
+  }
+
   .fusion-p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.12rem;
@@ -1343,7 +1357,7 @@
   <div class="burger" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
     <li><a href="#qui-suis-je">Bio</a></li>
-    <li><a href="#about">Le Salon</a></li>
+    <li><a href="#about">L'Atelier</a></li>
     <li><a href="#gallery">Galerie</a></li>
     <li><a href="#services">Tarifs</a></li>
     <li><a href="#reviews">Avis</a></li>
@@ -1419,13 +1433,14 @@
 
   <!-- ─── HYGIÈNE + ESPACE FUSIONNÉS ─── -->
   <div class="fusion-wrapper">
-    <div class="fusion-photo">
-      <img src="/images/hygiene.jpeg" alt="Outils stérilisés" />
+    <div class="fusion-photo salon">
+      <img src="/images/salon.jpeg" alt="Le salon Claire & Coloré" />
     </div>
     <div class="fusion-texts">
       <div class="fusion-block">
         <p class="section-label">Hygiène & Sécurité</p>
-        <p class="fusion-p">
+        <h3 class="fusion-title">Un protocole <em>rigoureux</em></h3>
+        <p class="nunito">
           Ici, chaque détail compte. Tous les outils utilisés à l'onglerie sont
           rigoureusement désinfectés et stérilisés selon un protocole strict,
           afin de garantir une hygiène irréprochable et la sécurité de chaque
@@ -1434,13 +1449,14 @@
       </div>
       <div class="fusion-block">
         <p class="section-label">L'Espace</p>
-        <p class="fusion-p">
+        <h3 class="fusion-title">Un cocon <em>rien que pour vous</em></h3>
+        <p class="nunito">
           Je vous offre un espace bienveillant dans une atmosphère douce et chaleureuse pensée rien que pour vous. Je serais à l'écoute pour votre bien-être et soucieuse de la beauté de vos ongles.
         </p>
       </div>
     </div>
-    <div class="fusion-photo salon">
-      <img src="/images/salon.jpeg" alt="Le salon Claire & Coloré" />
+    <div class="fusion-photo">
+      <img src="/images/hygiene.jpeg" alt="Outils stérilisés" />
     </div>
   </div>
 </section>
