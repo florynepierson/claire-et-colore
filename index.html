@@ -29,7 +29,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text); font-weight: 300; overflow-x: hidden; }
 
-  /* ─── NAV ─── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-logo img { height: 44px; width: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--gold); }
@@ -47,7 +46,6 @@
     .nav-links.active { display: flex; }
   }
 
-  /* ─── HERO ─── */
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 40px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #FBF8F4 0%, #F4ECE2 60%, #EDE0D0 100%); }
   .hero-leaf { position: absolute; opacity: 0.18; pointer-events: none; }
   .hero-leaf-tl { top: -30px; left: -20px; width: 280px; transform: rotate(-15deg); }
@@ -65,16 +63,12 @@
   .btn-outline { background: transparent; color: var(--brown); padding: 14px 36px; border-radius: 40px; font-family: 'Nunito', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--brown); transition: all 0.3s; cursor: pointer; }
   .btn-outline:hover { background: var(--brown); color: var(--warm-white); transform: translateY(-2px); }
 
-  /* ─── CONTAINER ─── */
   .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-  /* ─── SECTION SHARED ─── */
   section { padding: 50px 15px; }
   .section-label { font-family: 'Nunito', sans-serif; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--brown); line-height: 1.15; margin-top: 40px; margin-bottom: 30px; }
   .section-title em { font-style: italic; color: var(--brown-light); }
 
-  /* ─── GALLERY ─── */
   .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; text-align: center; margin: 60px 0 20px; color: var(--text); }
   .gallery-title em { color: var(--gold); font-style: italic; }
   .gallery-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 30px; width: 100%; }
@@ -90,7 +84,6 @@
     .gallery-title { margin-top: 100px; margin-bottom: 30px; }
   }
 
-  /* ─── LIGHTBOX ─── */
   .lightbox-overlay { display: none; position: fixed; inset: 0; z-index: 1000; backdrop-filter: blur(18px) brightness(0.5); -webkit-backdrop-filter: blur(18px) brightness(0.5); align-items: center; justify-content: center; }
   .lightbox-overlay.active { display: flex; }
   .lightbox-inner { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 60px 80px; box-sizing: border-box; }
@@ -115,7 +108,6 @@
     .hero-btns { margin-top: -20px; }
   }
 
-  /* ─── QUI SUIS-JE ─── */
   .qui-wrapper { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 70px; }
   .qui-photo-wrap { flex-shrink: 0; width: 340px; }
   .qui-photo-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: cover; filter: brightness(0.98) saturate(0.92); }
@@ -125,7 +117,6 @@
   .infos-pratiques { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .info-badge { font-family: 'Nunito', sans-serif; font-size: 0.78rem; color: var(--text); background: var(--cream); border: 1px solid var(--border); border-radius: 30px; padding: 7px 14px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 
-  /* ─── ATELIER ─── */
   .atelier-wrapper { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 70px; }
   .atelier-text { flex: 1; }
   .atelier-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; font-style: italic; color: var(--text-light); line-height: 1.85; margin-bottom: 24px; }
@@ -133,7 +124,6 @@
   .atelier-photo { flex-shrink: 0; width: 340px; }
   .atelier-photo img { width: 100%; height: auto; display: block; border-radius: 4px; object-fit: cover; filter: brightness(0.98) saturate(0.92); }
 
-  /* ─── FUSION HYGIÈNE + ESPACE ─── */
   .fusion-wrapper { max-width: 1100px; margin: 60px auto 0; display: flex; align-items: center; gap: 50px; }
   .fusion-photo { flex-shrink: 0; width: 260px; }
   .fusion-photo img { width: 100%; height: 280px; display: block; border-radius: 10px; object-fit: cover; filter: brightness(0.98) saturate(0.92); }
@@ -144,12 +134,10 @@
   .fusion-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; color: var(--brown); line-height: 1.15; margin: 8px 0 12px; }
   .fusion-title em { font-style: italic; color: var(--brown-light); }
 
-  /* ─── PILLARS ─── */
   .pillars { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
   .pillar { position: relative; padding-left: 18px; }
   .pillar::before { content: "•"; position: absolute; left: 0; color: var(--gold); }
 
-  /* ─── SERVICES ─── */
   .services { background: var(--warm-white); }
   .services-inner { max-width: 1100px; margin: 0 auto; }
   .services-header { text-align: center; margin-bottom: 60px; }
@@ -164,7 +152,6 @@
   .service-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; color: var(--brown); white-space: nowrap; flex-shrink: 0; }
   .service-note { margin-top: 18px; font-size: 0.78rem; color: var(--text-light); font-style: italic; font-family: 'Cormorant Garamond', serif; }
 
-  /* ─── RÉSERVATION ─── */
   #reservation { background: linear-gradient(135deg, #EDE3D8 0%, #F5EDE0 100%); padding: 90px 40px; }
   .reservation-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .reservation-inner .section-title { margin-bottom: 12px; }
@@ -187,7 +174,6 @@
   .form-success .checkmark { font-size: 2.5rem; margin-bottom: 16px; }
   .form-success p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--brown-light); }
 
-  /* ─── AVIS ─── */
   .reviews { background: var(--cream); }
   .reviews-inner { max-width: 1100px; margin: 0 auto; }
   .reviews-header { text-align: center; margin-bottom: 50px; }
@@ -202,7 +188,6 @@
   .review-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--text-light); line-height: 1.75; margin-bottom: 18px; }
   .review-author { font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--text); letter-spacing: 0.08em; }
 
-  /* ─── INFO ─── */
   .info { background: var(--warm-white); }
   .info-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .hours-grid { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
@@ -218,7 +203,6 @@
   .contact-value:hover { color: var(--brown-light); }
   .map-wrapper { margin-top: 36px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
 
-  /* ─── FOOTER ─── */
   footer { background: var(--brown); color: var(--cream); padding: 50px 40px 30px; text-align: center; }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.06em; margin-bottom: 12px; }
   .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 28px; opacity: 0.8; }
@@ -229,7 +213,6 @@
   .footer-legal-link { display: inline-block; margin-top: 10px; margin-right: 6px; font-size: 0.68rem; color: rgba(245,240,234,0.4); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: none; background: none; font-family: 'Nunito', sans-serif; transition: color 0.3s; }
   .footer-legal-link:hover { color: rgba(245,240,234,0.75); }
 
-  /* ─── MODALES ─── */
   .legal-overlay { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(61,46,34,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
   .legal-overlay.active { display: flex; }
   .legal-modal { background: var(--warm-white); border-radius: 8px; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 48px 44px; position: relative; box-shadow: 0 30px 80px rgba(61,46,34,0.25); }
@@ -243,7 +226,6 @@
   .legal-block a:hover { text-decoration: underline; }
   @media (max-width: 600px) { .legal-modal { padding: 36px 24px; } }
 
-  /* ─── BANDEAU COOKIES ─── */
   .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000; background: var(--brown); color: var(--cream); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; box-shadow: 0 -4px 24px rgba(61,46,34,0.18); transition: transform 0.4s ease; }
   .cookie-banner.hidden { transform: translateY(110%); }
   .cookie-text { font-family: 'Nunito', sans-serif; font-size: 0.82rem; color: rgba(245,240,234,0.85); line-height: 1.6; flex: 1; }
@@ -255,7 +237,6 @@
   .cookie-btn-refuse:hover { color: var(--cream); border-color: rgba(245,240,234,0.6); }
   @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; } }
 
-  /* ─── FLOATING BUTTONS ─── */
   .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
   .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.25s, box-shadow 0.25s; font-size: 1.3rem; }
   .float-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
@@ -286,11 +267,10 @@
 
 <body>
 
-<!-- ─── NAV ─── -->
 <nav>
   <a href="#" class="nav-logo">
     <img src="/images/logo.png" alt="" />
-    <span>Claire & Coloré</span>
+    <span>Claire &amp; Coloré</span>
   </a>
   <div class="burger" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
@@ -304,11 +284,10 @@
   </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow">Onglerie Naturelle &amp; Raffinée · Reims</p>
+    <p class="hero-eyebrow">Onglerie Naturelle &amp; Raffinée &middot; Reims</p>
     <h1 class="hero-title">Prendre soin<br><em>de vous</em></h1>
     <p class="hero-sub">J'aide les femmes à souffler et se reconnecter à elles.<br>Manucure russe, gel, nail art minimaliste — avec écoute, sans jugement.</p>
     <div class="hero-btns">
@@ -318,7 +297,6 @@
   </div>
 </section>
 
-<!-- ─── QUI SUIS-JE ─── -->
 <section id="qui-suis-je" style="background: var(--cream);">
   <div class="qui-wrapper">
     <div class="qui-photo-wrap">
@@ -339,13 +317,12 @@
         <span class="info-badge">🔌 Prise pour charger votre téléphone</span>
         <span class="info-badge">🌳 Parc à proximité</span>
         <span class="info-badge">🧼 Matériel stérilisé</span>
-        <span class="info-badge">🛋️ Ambiance cocooning</span>
+        <span class="info-badge">🛋 Ambiance cocooning</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── L'ATELIER ─── -->
 <section id="about" style="background: var(--cream);">
   <div class="atelier-wrapper">
     <div class="atelier-text">
@@ -368,35 +345,28 @@
       <img src="/images/manucure_coquelicot.jpeg" alt="" />
     </div>
   </div>
-
-  <!-- ─── HYGIÈNE + ESPACE FUSIONNÉS ─── -->
   <div class="fusion-wrapper">
     <div class="fusion-photo salon">
-      <img src="/images/salon.jpeg" alt="Le salon Claire & Coloré" />
+      <img src="/images/salon.jpeg" alt="Le salon Claire &amp; Coloré" />
     </div>
     <div class="fusion-texts">
-  <div class="fusion-block">
-    <p class="section-label">L'Espace</p>
-    <h3 class="fusion-title">Un cocon <em>rien que pour vous</em></h3>
-    <p class="nunito">
-      Je vous offre un espace bienveillant dans une atmosphère douce et chaleureuse pensée rien que pour vous. Je serais à l'écoute pour votre bien-être et soucieuse de la beauté de vos ongles.
-    </p>
-  </div>
-  <div class="fusion-block">
-    <p class="section-label">Hygiène & Sécurité</p>
-    <h3 class="fusion-title">Un protocole <em>rigoureux</em></h3>
-    <p class="nunito">
-      Ici, chaque détail compte. Tous les outils utilisés à l'onglerie sont rigoureusement désinfectés et stérilisés selon un protocole strict, afin de garantir une hygiène irréprochable et la sécurité de chaque cliente.
-    </p>
-  </div>
-</div>
+      <div class="fusion-block">
+        <p class="section-label">L'Espace</p>
+        <h3 class="fusion-title">Un cocon <em>rien que pour vous</em></h3>
+        <p class="nunito">Je vous offre un espace bienveillant dans une atmosphère douce et chaleureuse pensée rien que pour vous. Je serais à l'écoute pour votre bien-être et soucieuse de la beauté de vos ongles.</p>
+      </div>
+      <div class="fusion-block">
+        <p class="section-label">Hygiène &amp; Sécurité</p>
+        <h3 class="fusion-title">Un protocole <em>rigoureux</em></h3>
+        <p class="nunito">Ici, chaque détail compte. Tous les outils utilisés à l'onglerie sont rigoureusement désinfectés et stérilisés selon un protocole strict, afin de garantir une hygiène irréprochable et la sécurité de chaque cliente.</p>
+      </div>
+    </div>
     <div class="fusion-photo">
       <img src="/images/hygiene.jpeg" alt="Outils stérilisés" />
     </div>
   </div>
 </section>
 
-<!-- ─── GALLERY ─── -->
 <section id="gallery" class="gallery-section">
   <div class="container">
     <h2 class="section-title">Galerie <em>photos</em></h2>
@@ -436,7 +406,7 @@
   function getImages() { return Array.from(document.querySelectorAll('.gallery-item img')); }
   function open(index) { images = getImages(); current = index; show(); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
   function close() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
-  function show() { const img = images[current]; lbImg.src = img.src; lbImg.alt = img.alt; lbCount.textContent = `${current + 1} / ${images.length}`; }
+  function show() { const img = images[current]; lbImg.src = img.src; lbImg.alt = img.alt; lbCount.textContent = (current + 1) + ' / ' + images.length; }
   function prev() { current = (current - 1 + images.length) % images.length; show(); }
   function next() { current = (current + 1) % images.length; show(); }
   document.addEventListener('click', function (e) { const item = e.target.closest('.gallery-item'); if (item) { const imgs = getImages(); open(imgs.indexOf(item.querySelector('img'))); } });
@@ -449,7 +419,6 @@
 document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 </script>
 
-<!-- ─── SERVICES ─── -->
 <div class="section-wrapper services" id="services">
   <div class="services-inner">
     <div class="services-header">
@@ -463,7 +432,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       <div class="service-card">
         <p class="service-category">✦ Mains</p>
         <div class="service-item"><span class="service-name">Manucure sans vernis</span><span class="service-price">30 €</span></div>
-        <div class="service-item"><span class="service-name">Gainage · Remplissage gel</span><span class="service-price">60 €</span></div>
+        <div class="service-item"><span class="service-name">Gainage &middot; Remplissage gel</span><span class="service-price">60 €</span></div>
         <div class="service-item"><span class="service-name">Pose complète aux chablons</span><span class="service-price">70 €</span></div>
         <div class="service-item"><span class="service-name">Réparation hors remplissage</span><span class="service-price">+5 €/u</span></div>
         <div class="service-item"><span class="service-name">Dépose et soin</span><span class="service-price">25 €</span></div>
@@ -487,7 +456,6 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   </div>
 </div>
 
-<!-- ─── RÉSERVATION ─── -->
 <section id="reservation">
   <div class="reservation-inner">
     <p class="section-label">Rendez-vous</p>
@@ -538,7 +506,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       </div>
       <div class="form-success" id="formSuccess">
         <div class="checkmark">🌿</div>
-        <p>Merci pour votre demande&nbsp;!<br>Claire vous contactera très vite pour confirmer votre créneau.</p>
+        <p>Merci pour votre demande !<br>Claire vous contactera très vite pour confirmer votre créneau.</p>
       </div>
     </div>
   </div>
@@ -554,7 +522,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     <a href="tel:0631220573" class="booking-option">
       <div class="booking-option-icon">📞</div>
       <div class="booking-option-title">Appel téléphonique</div>
-      <div class="booking-option-desc">06 31 22 05 73 · Lun–Ven 9h–19h</div>
+      <div class="booking-option-desc">06 31 22 05 73 &middot; Lun–Ven 9h–19h</div>
     </a>
     <a href="https://www.instagram.com/claire_et_colore" target="_blank" class="booking-option">
       <div class="booking-option-icon">📸</div>
@@ -569,7 +537,6 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   </div>
 </section>
 
-<!-- ─── AVIS ─── -->
 <section class="section-wrapper reviews" id="reviews">
   <div class="reviews-inner">
     <div class="reviews-header">
@@ -580,31 +547,30 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
         <span class="rating-number">5,0</span>
         <div>
           <div class="rating-sub">Note Google</div>
-          <div class="rating-sub">100 % de recommandations · 6 avis</div>
+          <div class="rating-sub">100 % de recommandations &middot; 6 avis</div>
         </div>
       </div>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Claire est aux petits soins, à l'écoute et très professionnelle. Mes ongles n'ont jamais été aussi beaux. Je recommande vivement ! »</p>
-        <span class="review-author">Aurélie M. · Google</span>
+        <p class="review-text">« Claire est aux petits soins, à l'écoute et très professionnelle. Mes ongles n'ont jamais été aussi beaux. Je recommande vivement ! »</p>
+        <span class="review-author">Aurélie M. &middot; Google</span>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Un vrai moment de détente et de bien-être. La manucure russe est impeccable, les résultats durent longtemps. Merci Claire ! »</p>
-        <span class="review-author">Léa D. · Google</span>
+        <p class="review-text">« Un vrai moment de détente et de bien-être. La manucure russe est impeccable, les résultats durent longtemps. Merci Claire ! »</p>
+        <span class="review-author">Léa D. &middot; Google</span>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Accueil chaleureux, geste précis et résultat parfait. Je repars à chaque fois ravie et les ongles en super santé. »</p>
-        <span class="review-author">Sophie K. · Google</span>
+        <span class="review-author">Sophie K. &middot; Google</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── INFO ─── -->
 <section class="section-wrapper info" id="info">
   <div class="info-inner">
     <div>
@@ -644,10 +610,9 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-logo">Claire &amp; Coloré</div>
-  <div class="footer-tagline">Onglerie naturelle &amp; raffinée · Reims</div>
+  <div class="footer-tagline">Onglerie naturelle &amp; raffinée &middot; Reims</div>
   <div class="footer-social">
     <a href="https://www.instagram.com/claire_et_colore" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/claireetcolore/" target="_blank">Facebook</a>
@@ -655,14 +620,13 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     <a href="tel:0631220573">06 31 22 05 73</a>
   </div>
   <div class="footer-bottom">
-    © 2025 Claire &amp; Coloré · 5 Rue Jean de la Bruyère, 51100 Reims · Tous droits réservés
+    &copy; 2025 Claire &amp; Coloré &middot; 5 Rue Jean de la Bruyère, 51100 Reims &middot; Tous droits réservés
     <br>
     <button class="footer-legal-link" onclick="openLegal()">Mentions légales</button>
     <button class="footer-legal-link" onclick="openPrivacy()">Politique de confidentialité</button>
   </div>
 </footer>
 
-<!-- ─── MODALE MENTIONS LÉGALES ─── -->
 <div class="legal-overlay" id="legalOverlay" onclick="closeLegalOnOverlay(event)">
   <div class="legal-modal">
     <button class="legal-modal-close" onclick="closeLegal()">&#x2715;</button>
@@ -683,10 +647,15 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       <h3>Hébergeur</h3>
       <p>Vercel Inc.<br>440 N Baxter Ave, San Francisco, CA 94107, États-Unis<br><a href="https://vercel.com" target="_blank">vercel.com</a></p>
     </div>
+    <div class="legal-block">
+      <h3>Médiation de la consommation</h3>
+      <p>En cas de litige non résolu à l'amiable, vous pouvez recourir gratuitement au service de médiation&nbsp;:<br>
+      <a href="https://www.mediateur-des-entreprises.fr" target="_blank">Médiateur des Entreprises</a><br>
+      <em>(Adhésion en cours de finalisation.)</em></p>
+    </div>
   </div>
 </div>
 
-<!-- ─── MODALE POLITIQUE DE CONFIDENTIALITÉ ─── -->
 <div class="legal-overlay" id="privacyOverlay" onclick="closePrivacyOnOverlay(event)">
   <div class="legal-modal">
     <button class="legal-modal-close" onclick="closePrivacy()">&#x2715;</button>
@@ -704,8 +673,8 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       <p>Vos données sont utilisées exclusivement pour la gestion des rendez-vous. Elles ne sont pas conservées au-delà du temps nécessaire au traitement de votre demande et ne sont jamais revendues ni transmises à des tiers.</p>
     </div>
     <div class="legal-block">
-      <h3>Cookies et services tiers</h3>
-      <p>Ce site utilise Google Fonts (chargement de polices) et Google Maps (carte interactive). Ces services peuvent déposer des cookies ou collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
+      <h3>Services tiers</h3>
+      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive) et Formspree (traitement des demandes de réservation). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
     </div>
     <div class="legal-block">
       <h3>Vos droits</h3>
@@ -714,10 +683,9 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   </div>
 </div>
 
-<!-- ─── BANDEAU COOKIES ─── -->
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    Ce site utilise Google Fonts et Google Maps qui peuvent déposer des cookies. Aucun cookie publicitaire n'est utilisé.
+    Ce site utilise Google Fonts, Google Maps et Formspree qui peuvent déposer des cookies. Aucun cookie publicitaire n'est utilisé.
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
@@ -726,7 +694,6 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   </div>
 </div>
 
-<!-- ─── FLOATING BUTTONS ─── -->
 <div class="float-buttons">
   <a href="https://wa.me/33631220573" target="_blank" class="float-btn float-wa" title="WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -740,18 +707,66 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
 </div>
 
 <script>
-function submitBooking() {
+async function submitBooking() {
   const fname = document.getElementById('fname').value;
   const phone = document.getElementById('phone').value;
   const service = document.getElementById('service').value;
   const date = document.getElementById('date').value;
-  if (!fname || !phone || !service || !date) { alert('Merci de remplir les champs obligatoires (prénom, téléphone, prestation, date).'); return; }
+  if (!fname || !phone || !service || !date) {
+    alert('Merci de remplir les champs obligatoires (prénom, téléphone, prestation, date).');
+    return;
+  }
   const lname = document.getElementById('lname').value;
   const time = document.getElementById('time').value;
   const message = document.getElementById('message').value;
-  const msg = encodeURIComponent(`Bonjour Claire ! Je souhaite prendre rendez-vous.\n\nNom : ${fname} ${lname}\nTéléphone : ${phone}\nPrestation : ${service}\nDate souhaitée : ${date}${time ? '\nCréneau : ' + time : ''}${message ? '\n\nMessage : ' + message : ''}\n\nMerci !`);
-  setTimeout(() => { window.open(`https://wa.me/33631220573?text=${msg}`, '_blank'); document.getElementById('bookingFormContent').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; }, 500);
+
+  const btn = document.querySelector('#bookingFormContent .btn-primary');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+
+  const formData = new FormData();
+  formData.append('Prénom', fname);
+  formData.append('Nom', lname);
+  formData.append('Téléphone', phone);
+  formData.append('Email', document.getElementById('email').value);
+  formData.append('Prestation', service);
+  formData.append('Date souhaitée', date);
+  formData.append('Créneau', time);
+  formData.append('Message', message);
+
+  try {
+    const res = await fetch('https://formspree.io/f/xwvzngyw', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      const msg = encodeURIComponent('Bonjour Claire ! Je souhaite prendre rendez-vous.
+
+Nom : ' + fname + ' ' + lname + '
+Téléphone : ' + phone + '
+Prestation : ' + service + '
+Date souhaitée : ' + date + (time ? '
+Créneau : ' + time : '') + (message ? '
+
+Message : ' + message : '') + '
+
+Merci !');
+      window.open('https://wa.me/33631220573?text=' + msg, '_blank');
+      document.getElementById('bookingFormContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      alert('Une erreur est survenue. Merci de me contacter directement par WhatsApp ou téléphone.');
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma demande';
+    }
+  } catch(e) {
+    alert('Erreur réseau. Merci de me contacter directement par WhatsApp ou téléphone.');
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma demande';
+  }
 }
+
 const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
