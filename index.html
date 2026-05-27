@@ -42,11 +42,13 @@
 
   @media (max-width: 768px) {
     .burger { display: block; }
-    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: #FAF7F4; flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; }
-    .nav-links.active { display: flex !important; }
-    .nav-links li { border-bottom: 1px solid var(--border); }
-    .nav-links li a { display: block; padding: 18px 24px; font-size: 0.95rem; }
-    .nav-links li:last-child { border-bottom: none; padding: 18px 24px; }
+    .nav-links { display: none; }
+    #mobileNav { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: #FAF7F4; flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; list-style: none; overflow-y: auto; }
+    #mobileNav.active { display: flex !important; }
+    #mobileNav li { border-bottom: 1px solid var(--border); }
+    #mobileNav li a { display: block; padding: 20px 28px; font-size: 1rem; color: var(--brown); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+    #mobileNav li:last-child { border-bottom: none; padding: 20px 28px; }
+    #mobileNav .nav-cta { display: inline-block; background: var(--brown); color: var(--warm-white) !important; border-radius: 30px; padding: 12px 28px !important; }
   }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 40px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #FBF8F4 0%, #F4ECE2 60%, #EDE0D0 100%); }
@@ -278,7 +280,6 @@
     <img src="/images/logo.png" alt="" />
     <span>Claire &amp; Coloré</span>
   </a>
-  <div class="burger" id="burgerBtn" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
     <li><a href="#qui-suis-je">Bio</a></li>
     <li><a href="#about">Le Salon</a></li>
@@ -288,7 +289,18 @@
     <li><a href="#info">Contact</a></li>
     <li><a href="#reservation" class="nav-cta">Réserver</a></li>
   </ul>
+  <div class="burger" id="burgerBtn">☰</div>
 </nav>
+
+<ul id="mobileNav">
+  <li><a href="#qui-suis-je">Bio</a></li>
+  <li><a href="#about">Le Salon</a></li>
+  <li><a href="#gallery">Galerie</a></li>
+  <li><a href="#services">Tarifs</a></li>
+  <li><a href="#reviews">Avis</a></li>
+  <li><a href="#info">Contact</a></li>
+  <li><a href="#reservation" class="nav-cta">Réserver</a></li>
+</ul>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -586,18 +598,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
         </div>
       </a>
     </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Un vrai moment de détente et de bien-être. La manucure russe est impeccable, les résultats durent longtemps. Merci Claire ! »</p>
-        <span class="review-author">Léa D. &middot; Google</span>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Accueil chaleureux, geste précis et résultat parfait. Je repars à chaque fois ravie et les ongles en super santé. »</p>
-        <span class="review-author">Sophie K. &middot; Google</span>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="section-wrapper info" id="info">
@@ -718,8 +719,8 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
-    <button class="cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
-    <button class="cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+    <button class="cookie-btn-refuse" id="cookieBtnRefuse">Refuser</button>
+    <button class="cookie-btn-accept" id="cookieBtnAccept">Accepter</button>
   </div>
 </div>
 
@@ -800,7 +801,7 @@ const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
 function toggleMenu() {
-  var menu = document.querySelector('.nav-links');
+  var menu = document.getElementById('mobileNav');
   menu.classList.toggle('active');
   document.getElementById('burgerBtn').textContent = menu.classList.contains('active') ? '✕' : '☰';
 }
@@ -813,9 +814,46 @@ function openPrivacy() { document.getElementById('privacyOverlay').classList.add
 function closePrivacy() { document.getElementById('privacyOverlay').classList.remove('active'); document.body.style.overflow = ''; }
 function closePrivacyOnOverlay(e) { if (e.target === document.getElementById('privacyOverlay')) closePrivacy(); }
 
-function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); }
-function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); }
-window.addEventListener('load', function() { if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); } });
+function closeMenu() {
+  var menu = document.getElementById('mobileNav');
+  if (menu) menu.classList.remove('active');
+  var burger = document.getElementById('burgerBtn');
+  if (burger) burger.textContent = '☰';
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookieConsent_v2', 'accepted');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+function refuseCookies() {
+  localStorage.setItem('cookieConsent_v2', 'refused');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Burger menu
+  var burger = document.getElementById('burgerBtn');
+  var menu = document.getElementById('mobileNav');
+  if (burger && menu) {
+    burger.addEventListener('click', function() {
+      menu.classList.toggle('active');
+      burger.textContent = menu.classList.contains('active') ? '✕' : '☰';
+    });
+    // Fermer en cliquant sur un lien
+    menu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Cookies
+  if (localStorage.getItem('cookieConsent_v2')) {
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
+  var btnAccept = document.getElementById('cookieBtnAccept');
+  var btnRefuse = document.getElementById('cookieBtnRefuse');
+  if (btnAccept) btnAccept.addEventListener('click', acceptCookies);
+  if (btnRefuse) btnRefuse.addEventListener('click', refuseCookies);
+});
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
 </script>
