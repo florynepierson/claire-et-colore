@@ -39,8 +39,8 @@
   .nav-cta { background: var(--brown) !important; color: var(--warm-white) !important; padding: 9px 22px !important; border-radius: 30px !important; letter-spacing: 0.1em !important; transition: background 0.3s !important; }
   .nav-cta:hover { background: var(--brown-light) !important; color: var(--warm-white) !important; }
   .burger { display: none; font-size: 2rem; cursor: pointer; color: var(--brown); z-index: 1003; position: relative; padding: 8px; -webkit-tap-highlight-color: transparent; user-select: none; }
-  .nav-overlay { display: none; position: fixed; left: 0; right: 0; bottom: 0; top: 70px; z-index: 1000; background: rgba(0,0,0,0.3); }
-  .nav-overlay.active { display: block; }
+  .nav-overlay { display: block; position: fixed; left: 0; right: 0; bottom: 0; top: 70px; z-index: 1000; background: rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+  .nav-overlay.active { opacity: 1; pointer-events: all; }
 
   @media (max-width: 768px) {
     .burger { display: block; }
@@ -245,9 +245,10 @@
   .cookie-btn-accept:hover { background: var(--gold-light); }
   .cookie-btn-refuse { background: transparent; color: rgba(245,240,234,0.6); border: 1px solid rgba(245,240,234,0.3); padding: 9px 22px; border-radius: 30px; font-family: 'Nunito', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
   .cookie-btn-refuse:hover { color: var(--cream); border-color: rgba(245,240,234,0.6); }
-  @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; } }
+  @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; gap: 10px; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; min-height: 48px; font-size: 0.85rem; } }
 
   .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 500; }
+  .float-buttons.pushed { bottom: 150px; }
   .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.25s, box-shadow 0.25s; font-size: 1.3rem; }
   .float-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
   .float-wa { background: #25D366; }
@@ -563,7 +564,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       </div>
     </div>
     <div class="reviews-grid">
-      <a class="review-card" href="https://www.google.com/search?sca_esv=9c77dccc4b7ae124&hl=fr&sxsrf=ANbL-n5JPe8LHjxv6QZjRbvfOICBDOJpJQ:1779871979909&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOTJvhjUCdPRKS2eprqWmjZYqUTrsJnzshDIx6oVbnuQyKshYO0DI1PcEAaYvBalkaoUmPsNK0Ia081nO8VSds6AZg78X&q=claire+et+colore+Avis&sa=X&ved=2ahUKEwjlve7oi9mUAxVod6QEHU4mLjgQ0bkNegQIOxAH" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/search?q=claire+et+colore+Avis&tbm=lcl&hl=fr-FR#lkt=LocalPoiReviews" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Première rencontre avec Claire pour un remplissage, résultat parfait, manucure faite avec une grande minutie et beaucoup de professionnalisme. Personne très douce et chaleureuse. Ravie de cette rencontre&nbsp;! »</p>
         <div class="review-footer">
@@ -574,7 +575,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
           <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</div>
         </div>
       </a>
-      <a class="review-card" href="https://www.google.com/search?sca_esv=9c77dccc4b7ae124&hl=fr&sxsrf=ANbL-n5JPe8LHjxv6QZjRbvfOICBDOJpJQ:1779871979909&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOTJvhjUCdPRKS2eprqWmjZYqUTrsJnzshDIx6oVbnuQyKshYO0DI1PcEAaYvBalkaoUmPsNK0Ia081nO8VSds6AZg78X&q=claire+et+colore+Avis&sa=X&ved=2ahUKEwjlve7oi9mUAxVod6QEHU4mLjgQ0bkNegQIOxAH" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/search?q=claire+et+colore+Avis&tbm=lcl&hl=fr-FR#lkt=LocalPoiReviews" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Je te remercie Claire pour la perfection de ton travail et pour ta bonne humeur 🌸 Je suis vraiment contente de mes ongles, ils sont justes magnifiques 🥰 »</p>
         <div class="review-footer">
@@ -585,7 +586,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
           <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</div>
         </div>
       </a>
-      <a class="review-card" href="https://www.google.com/search?sca_esv=9c77dccc4b7ae124&hl=fr&sxsrf=ANbL-n5JPe8LHjxv6QZjRbvfOICBDOJpJQ:1779871979909&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOTJvhjUCdPRKS2eprqWmjZYqUTrsJnzshDIx6oVbnuQyKshYO0DI1PcEAaYvBalkaoUmPsNK0Ia081nO8VSds6AZg78X&q=claire+et+colore+Avis&sa=X&ved=2ahUKEwjlve7oi9mUAxVod6QEHU4mLjgQ0bkNegQIOxAH" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/search?q=claire+et+colore+Avis&tbm=lcl&hl=fr-FR#lkt=LocalPoiReviews" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Un rdv mensuel depuis bientôt 6 ans, un travail toujours parfait, bien plus qu'une simple prothésiste ongulaire, elle coche toutes les cases 💪 »</p>
         <div class="review-footer">
@@ -818,6 +819,22 @@ function closeMenu() {
   document.getElementById('burgerBtn').textContent = '☰';
 }
 window.addEventListener('resize', function() { if (window.innerWidth > 768) closeMenu(); });
+// Attacher le burger via addEventListener pour éviter tout conflit inline
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.getElementById('burgerBtn');
+  if (burger) {
+    burger.onclick = null; // supprimer l'inline
+    burger.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+    burger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
+});
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -830,14 +847,18 @@ function closePrivacyOnOverlay(e) { if (e.target === document.getElementById('pr
 function acceptCookies() {
   localStorage.setItem('cookieConsent', 'accepted');
   document.getElementById('cookieBanner').classList.add('hidden');
+  document.querySelector('.float-buttons').classList.remove('pushed');
 }
 function refuseCookies() {
   localStorage.setItem('cookieConsent', 'refused');
   document.getElementById('cookieBanner').classList.add('hidden');
+  document.querySelector('.float-buttons').classList.remove('pushed');
 }
 window.addEventListener('load', function() {
   if (localStorage.getItem('cookieConsent')) {
     document.getElementById('cookieBanner').classList.add('hidden');
+  } else {
+    document.querySelector('.float-buttons').classList.add('pushed');
   }
 });
 
