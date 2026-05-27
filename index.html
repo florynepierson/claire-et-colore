@@ -42,8 +42,8 @@
 
   @media (max-width: 768px) {
     .burger { display: block; }
-    .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: rgba(250,247,244,0.98); flex-direction: column; gap: 0; padding: 0; display: none; z-index: 200; }
-    .nav-links.active { display: flex; }
+    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: #FAF7F4; flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; }
+    .nav-links.active { display: flex !important; }
     .nav-links li { border-bottom: 1px solid var(--border); }
     .nav-links li a { display: block; padding: 18px 24px; font-size: 0.95rem; }
     .nav-links li:last-child { border-bottom: none; padding: 18px 24px; }
@@ -278,7 +278,7 @@
     <img src="/images/logo.png" alt="" />
     <span>Claire &amp; Coloré</span>
   </a>
-  <div class="burger" onclick="toggleMenu()">☰</div>
+  <div class="burger" id="burgerBtn" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
     <li><a href="#qui-suis-je">Bio</a></li>
     <li><a href="#about">Le Salon</a></li>
@@ -799,7 +799,11 @@ Merci !');
 const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
-function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
+function toggleMenu() {
+  var menu = document.querySelector('.nav-links');
+  menu.classList.toggle('active');
+  document.getElementById('burgerBtn').textContent = menu.classList.contains('active') ? '✕' : '☰';
+}
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
