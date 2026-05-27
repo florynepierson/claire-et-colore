@@ -42,13 +42,11 @@
 
   @media (max-width: 768px) {
     .burger { display: block; }
-    .nav-links { display: none; }
-    #mobileNav { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: #FAF7F4; flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; list-style: none; overflow-y: auto; }
-    #mobileNav.active { display: flex !important; }
-    #mobileNav li { border-bottom: 1px solid var(--border); }
-    #mobileNav li a { display: block; padding: 20px 28px; font-size: 1rem; color: var(--brown); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
-    #mobileNav li:last-child { border-bottom: none; padding: 20px 28px; }
-    #mobileNav .nav-cta { display: inline-block; background: var(--brown); color: var(--warm-white) !important; border-radius: 30px; padding: 12px 28px !important; }
+    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(250,247,244,0.98); flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; overflow-y: auto; }
+    .nav-links.active { display: flex; }
+    .nav-links li { border-bottom: 1px solid var(--border); }
+    .nav-links li a { display: block; padding: 20px 28px; font-size: 1rem; }
+    .nav-links li:last-child { border-bottom: none; padding: 20px 28px; }
   }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 40px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #FBF8F4 0%, #F4ECE2 60%, #EDE0D0 100%); }
@@ -245,7 +243,7 @@
   .cookie-btn-refuse:hover { color: var(--cream); border-color: rgba(245,240,234,0.6); }
   @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; } }
 
-  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 1; }
   .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.25s, box-shadow 0.25s; font-size: 1.3rem; }
   .float-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
   .float-wa { background: #25D366; }
@@ -280,6 +278,7 @@
     <img src="/images/logo.png" alt="" />
     <span>Claire &amp; Coloré</span>
   </a>
+  <div class="burger" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
     <li><a href="#qui-suis-je">Bio</a></li>
     <li><a href="#about">Le Salon</a></li>
@@ -289,18 +288,7 @@
     <li><a href="#info">Contact</a></li>
     <li><a href="#reservation" class="nav-cta">Réserver</a></li>
   </ul>
-  <div class="burger" id="burgerBtn">☰</div>
 </nav>
-
-<ul id="mobileNav">
-  <li><a href="#qui-suis-je">Bio</a></li>
-  <li><a href="#about">Le Salon</a></li>
-  <li><a href="#gallery">Galerie</a></li>
-  <li><a href="#services">Tarifs</a></li>
-  <li><a href="#reviews">Avis</a></li>
-  <li><a href="#info">Contact</a></li>
-  <li><a href="#reservation" class="nav-cta">Réserver</a></li>
-</ul>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -573,32 +561,20 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       <a class="review-card" href="https://www.google.com/search?sa=X&sca_esv=87e88f7c1e7827b9&biw=1001&bih=924&sxsrf=ANbL-n6k1DAIQc6Y_YWfDrFzdsTroKH6fg:1779870701318&q=claire%20et%20colore%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQyNjCytDAyMTcxt7S0NDQwMNnAyPiKUTQ5JzGzKFUhtUQhOT8nH8hyLMssXsSKXRwAqK5_j0sAAAA&rldimm=11230298247479991004&tbm=lcl&hl=fr-FR&ved=0CAcQ5foLahcKEwjA0v7GiNmUAxUAAAAAHQAAAAAQBQ#lkt=LocalPoiReviews&arid=ChdDSUhNMG9nS0VJQ0FnSURKdWFQZDd3RRAB" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Première rencontre avec Claire pour un remplissage, résultat parfait, manucure faite avec une grande minutie et beaucoup de professionnalisme. Personne très douce et chaleureuse. Ravie de cette rencontre ! »</p>
-        <div class="review-footer">
-          <span class="review-author">Anne M.</span>
-          <span class="review-date">Juillet 2023</span>
-          <span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
-        </div>
+        <div class="review-footer"><span class="review-author">Anne M.</span><span class="review-date">Juillet 2023</span><span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span></div>
       </a>
       <a class="review-card" href="https://www.google.com/search?sa=X&sca_esv=87e88f7c1e7827b9&biw=1001&bih=924&sxsrf=ANbL-n6k1DAIQc6Y_YWfDrFzdsTroKH6fg:1779870701318&q=claire%20et%20colore%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQyNjCytDAyMTcxt7S0NDQwMNnAyPiKUTQ5JzGzKFUhtUQhOT8nH8hyLMssXsSKXRwAqK5_j0sAAAA&rldimm=11230298247479991004&tbm=lcl&hl=fr-FR&ved=0CAcQ5foLahcKEwjA0v7GiNmUAxUAAAAAHQAAAAAQBQ#lkt=LocalPoiReviews&arid=ChdDSUhNMG9nS0VJQ0FnSURKdWFQZDd3RRAB" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Je te remercie Claire pour la perfection de ton travail et pour ta bonne humeur 🌸 Je suis vraiment contente de mes ongles, ils sont justes magnifiques 🥰 »</p>
-        <div class="review-footer">
-          <span class="review-author">Nathalie Belle et Bien</span>
-          <span class="review-date">Avril 2025</span>
-          <span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
-        </div>
+        <div class="review-footer"><span class="review-author">Nathalie Belle et Bien</span><span class="review-date">Avril 2025</span><span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span></div>
       </a>
       <a class="review-card" href="https://www.google.com/search?sa=X&sca_esv=87e88f7c1e7827b9&biw=1001&bih=924&sxsrf=ANbL-n6k1DAIQc6Y_YWfDrFzdsTroKH6fg:1779870701318&q=claire%20et%20colore%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQyNjCytDAyMTcxt7S0NDQwMNnAyPiKUTQ5JzGzKFUhtUQhOT8nH8hyLMssXsSKXRwAqK5_j0sAAAA&rldimm=11230298247479991004&tbm=lcl&hl=fr-FR&ved=0CAcQ5foLahcKEwjA0v7GiNmUAxUAAAAAHQAAAAAQBQ#lkt=LocalPoiReviews&arid=ChdDSUhNMG9nS0VJQ0FnSURKdWFQZDd3RRAB" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">« Un rdv mensuel depuis bientôt 6 ans, un travail toujours parfait, bien plus qu'une simple prothésiste ongulaire, elle coche toutes les cases 💪 »</p>
-        <div class="review-footer">
-          <span class="review-author">Jennifer D.</span>
-          <span class="review-date">Mars 2026</span>
-          <span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
-        </div>
+        <div class="review-footer"><span class="review-author">Jennifer D.</span><span class="review-date">Mars 2026</span><span class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span></div>
       </a>
     </div>
-    </div>
+  </div>
 </section>
 
 <section class="section-wrapper info" id="info">
@@ -719,8 +695,8 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
-    <button class="cookie-btn-refuse" id="cookieBtnRefuse">Refuser</button>
-    <button class="cookie-btn-accept" id="cookieBtnAccept">Accepter</button>
+    <button class="cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
+    <button class="cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
   </div>
 </div>
 
@@ -800,11 +776,7 @@ Merci !');
 const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
-function toggleMenu() {
-  var menu = document.getElementById('mobileNav');
-  menu.classList.toggle('active');
-  document.getElementById('burgerBtn').textContent = menu.classList.contains('active') ? '✕' : '☰';
-}
+function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -814,46 +786,9 @@ function openPrivacy() { document.getElementById('privacyOverlay').classList.add
 function closePrivacy() { document.getElementById('privacyOverlay').classList.remove('active'); document.body.style.overflow = ''; }
 function closePrivacyOnOverlay(e) { if (e.target === document.getElementById('privacyOverlay')) closePrivacy(); }
 
-function closeMenu() {
-  var menu = document.getElementById('mobileNav');
-  if (menu) menu.classList.remove('active');
-  var burger = document.getElementById('burgerBtn');
-  if (burger) burger.textContent = '☰';
-}
-
-function acceptCookies() {
-  localStorage.setItem('cookieConsent_v2', 'accepted');
-  document.getElementById('cookieBanner').classList.add('hidden');
-}
-function refuseCookies() {
-  localStorage.setItem('cookieConsent_v2', 'refused');
-  document.getElementById('cookieBanner').classList.add('hidden');
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Burger menu
-  var burger = document.getElementById('burgerBtn');
-  var menu = document.getElementById('mobileNav');
-  if (burger && menu) {
-    burger.addEventListener('click', function() {
-      menu.classList.toggle('active');
-      burger.textContent = menu.classList.contains('active') ? '✕' : '☰';
-    });
-    // Fermer en cliquant sur un lien
-    menu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', closeMenu);
-    });
-  }
-
-  // Cookies
-  if (localStorage.getItem('cookieConsent_v2')) {
-    document.getElementById('cookieBanner').classList.add('hidden');
-  }
-  var btnAccept = document.getElementById('cookieBtnAccept');
-  var btnRefuse = document.getElementById('cookieBtnRefuse');
-  if (btnAccept) btnAccept.addEventListener('click', acceptCookies);
-  if (btnRefuse) btnRefuse.addEventListener('click', refuseCookies);
-});
+function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); }
+function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); }
+window.addEventListener('load', function() { if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); } });
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
 </script>
