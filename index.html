@@ -29,7 +29,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text); font-weight: 300; overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-logo img { height: 44px; width: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--gold); }
   .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--brown); letter-spacing: 0.04em; }
@@ -38,18 +38,19 @@
   .nav-links a:hover { color: var(--brown); }
   .nav-cta { background: var(--brown) !important; color: var(--warm-white) !important; padding: 9px 22px !important; border-radius: 30px !important; letter-spacing: 0.1em !important; transition: background 0.3s !important; }
   .nav-cta:hover { background: var(--brown-light) !important; color: var(--warm-white) !important; }
-  .burger { display: none; font-size: 1.6rem; cursor: pointer; color: var(--brown); z-index: 101; position: relative; }
-  .nav-overlay { display: none; position: fixed; inset: 0; top: 70px; z-index: 98; background: transparent; }
+  .burger { display: none; font-size: 1.6rem; cursor: pointer; color: var(--brown); z-index: 1002; position: relative; }
+  .nav-overlay { display: none; position: fixed; inset: 0; top: 70px; z-index: 1001; background: transparent; }
   .nav-overlay.active { display: block; }
 
   @media (max-width: 768px) {
     .burger { display: block; }
-    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(250,247,244,0.98); flex-direction: column; gap: 0; padding: 0; display: none; z-index: 99; overflow-y: auto; }
-    .nav-links.active { display: flex; }
-    .nav-links li { border-bottom: 1px solid var(--border); width: 100%; }
-    .nav-links li a { display: block; padding: 18px 28px; font-size: 0.9rem; color: var(--brown); letter-spacing: 0.08em; }
+    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: #FAF7F4; flex-direction: column; gap: 0; padding: 0; list-style: none; display: none !important; z-index: 1001; overflow-y: auto; box-shadow: 0 4px 20px rgba(74,55,40,0.12); }
+    .nav-links.active { display: flex !important; }
+    .nav-links li { border-bottom: 1px solid #E0D5C8; width: 100%; list-style: none; }
+    .nav-links li a { display: block; padding: 20px 28px; font-size: 1rem; color: #4A3728; letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links li a:active { background: #F5F0EA; }
     .nav-links li:last-child { border-bottom: none; padding: 20px 28px; }
-    .nav-cta { display: inline-block !important; margin: 0 !important; border-radius: 30px !important; padding: 12px 28px !important; }
+    .nav-cta { display: inline-block !important; background: #4A3728 !important; color: #FAF7F4 !important; border-radius: 30px !important; padding: 12px 28px !important; margin: 0 !important; }
   }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 40px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #FBF8F4 0%, #F4ECE2 60%, #EDE0D0 100%); }
@@ -194,7 +195,9 @@
   .review-card:hover .review-google-badge { border-color: var(--gold); color: var(--brown-light); }
   .review-stars { color: #FBB03B; font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 14px; }
   .review-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--text-light); line-height: 1.75; margin-bottom: 18px; }
-  .review-author { font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--text); letter-spacing: 0.08em; }
+  .review-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; }
+  .review-author { font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text); letter-spacing: 0.06em; display: block; }
+  .review-date { font-family: 'Nunito', sans-serif; font-size: 0.72rem; color: var(--text-light); display: block; margin-top: 2px; }
 
   .info { background: var(--warm-white); }
   .info-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
@@ -234,8 +237,8 @@
   .legal-block a:hover { text-decoration: underline; }
   @media (max-width: 600px) { .legal-modal { padding: 36px 24px; } }
 
-  .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000; background: var(--brown); color: var(--cream); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; box-shadow: 0 -4px 24px rgba(61,46,34,0.18); transition: transform 0.4s ease; }
-  .cookie-banner.hidden { transform: translateY(110%); }
+  .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000; background: var(--brown); color: var(--cream); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; box-shadow: 0 -4px 24px rgba(61,46,34,0.18); transition: transform 0.4s ease; pointer-events: all; }
+  .cookie-banner.hidden { transform: translateY(110%); pointer-events: none; }
   .cookie-text { font-family: 'Nunito', sans-serif; font-size: 0.82rem; color: rgba(245,240,234,0.85); line-height: 1.6; flex: 1; }
   .cookie-text button { background: none; border: none; color: var(--gold-light); text-decoration: underline; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 0.82rem; padding: 0; }
   .cookie-buttons { display: flex; gap: 12px; flex-shrink: 0; }
@@ -245,7 +248,7 @@
   .cookie-btn-refuse:hover { color: var(--cream); border-color: rgba(245,240,234,0.6); }
   @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; } }
 
-  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 500; transition: bottom 0.4s ease; }
   .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.25s, box-shadow 0.25s; font-size: 1.3rem; }
   .float-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
   .float-wa { background: #25D366; }
@@ -561,29 +564,40 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       </div>
     </div>
     <div class="reviews-grid">
-      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/@49.220629,4.026328,17z/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Claire est aux petits soins, à l'écoute et très professionnelle. Mes ongles n'ont jamais été aussi beaux. Je recommande vivement ! »</p>
-        <span class="review-author">Aurélie M.</span>
-        
-        <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Voir sur Google</div>
+        <p class="review-text">« Première rencontre avec Claire pour un remplissage, résultat parfait, manucure faite avec une grande minutie et beaucoup de professionnalisme. Personne très douce et chaleureuse. Ravie de cette rencontre&nbsp;! »</p>
+        <div class="review-footer">
+          <div>
+            <span class="review-author">Anne M.</span>
+            <span class="review-date">Juillet 2023</span>
+          </div>
+          <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</div>
+        </div>
       </a>
-      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/@49.220629,4.026328,17z/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Un vrai moment de détente et de bien-être. La manucure russe est impeccable, les résultats durent longtemps. Merci Claire ! »</p>
-        <span class="review-author">Léa D.</span>
-        
-        <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Voir sur Google</div>
+        <p class="review-text">« Je te remercie Claire pour la perfection de ton travail et pour ta bonne humeur 🌸 Je suis vraiment contente de mes ongles, ils sont justes magnifiques 🥰 »</p>
+        <div class="review-footer">
+          <div>
+            <span class="review-author">Nathalie Belle et Bien</span>
+            <span class="review-date">Avril 2025</span>
+          </div>
+          <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</div>
+        </div>
       </a>
-      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/@49.220629,4.026328,17z/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
+      <a class="review-card" href="https://www.google.com/maps/place/claire+et+colore/data=!4m8!3m7!1s0x47e9759c119633a5:0x9bda08c162bc9adc!8m2!3d49.220629!4d4.026328!9m1!1b1" target="_blank" rel="noopener">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Accueil chaleureux, geste précis et résultat parfait. Je repars à chaque fois ravie et les ongles en super santé. »</p>
-        <span class="review-author">Sophie K.</span>
-        
-        <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Voir sur Google</div>
+        <p class="review-text">« Un rdv mensuel depuis bientôt 6 ans, un travail toujours parfait, bien plus qu'une simple prothésiste ongulaire, elle coche toutes les cases 💪 »</p>
+        <div class="review-footer">
+          <div>
+            <span class="review-author">Jennifer D.</span>
+            <span class="review-date">Mars 2026</span>
+          </div>
+          <div class="review-google-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</div>
+        </div>
       </a>
-    </div>
-  </div>
+    </div>  </div>
 </section>
 
 <section class="section-wrapper info" id="info">
@@ -786,23 +800,35 @@ const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
 function toggleMenu() {
-  const links = document.getElementById('navLinks');
-  const overlay = document.getElementById('navOverlay');
-  const burger = document.getElementById('burgerBtn');
-  const isOpen = links.classList.toggle('active');
-  overlay.classList.toggle('active', isOpen);
-  burger.textContent = isOpen ? '✕' : '☰';
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  var links = document.getElementById('navLinks');
+  var overlay = document.getElementById('navOverlay');
+  var burger = document.getElementById('burgerBtn');
+  var isOpen = links.classList.contains('active');
+  if (isOpen) {
+    links.classList.remove('active');
+    overlay.classList.remove('active');
+    burger.innerHTML = '&#9776;';
+    document.body.style.overflow = '';
+  } else {
+    links.classList.add('active');
+    overlay.classList.add('active');
+    burger.innerHTML = '&#x2715;';
+    document.body.style.overflow = 'hidden';
+  }
 }
 function closeMenu() {
-  const links = document.getElementById('navLinks');
-  const overlay = document.getElementById('navOverlay');
-  const burger = document.getElementById('burgerBtn');
+  var links = document.getElementById('navLinks');
+  var overlay = document.getElementById('navOverlay');
+  var burger = document.getElementById('burgerBtn');
   links.classList.remove('active');
   overlay.classList.remove('active');
-  burger.textContent = '☰';
+  burger.innerHTML = '&#9776;';
   document.body.style.overflow = '';
 }
+// Fermer le menu si on redimensionne au-dessus du breakpoint
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) closeMenu();
+});
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -812,9 +838,26 @@ function openPrivacy() { document.getElementById('privacyOverlay').classList.add
 function closePrivacy() { document.getElementById('privacyOverlay').classList.remove('active'); document.body.style.overflow = ''; }
 function closePrivacyOnOverlay(e) { if (e.target === document.getElementById('privacyOverlay')) closePrivacy(); }
 
-function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); }
-function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); }
-window.addEventListener('load', function() { if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); } });
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieBanner').classList.add('hidden');
+  document.querySelector('.float-buttons').style.bottom = '28px';
+}
+function refuseCookies() {
+  localStorage.setItem('cookieConsent', 'refused');
+  document.getElementById('cookieBanner').classList.add('hidden');
+  document.querySelector('.float-buttons').style.bottom = '28px';
+}
+window.addEventListener('load', function() {
+  const banner = document.getElementById('cookieBanner');
+  const floats = document.querySelector('.float-buttons');
+  if (localStorage.getItem('cookieConsent')) {
+    banner.classList.add('hidden');
+  } else {
+    // Push float buttons up so they don't overlap the cookie banner
+    floats.style.bottom = '130px';
+  }
+});
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
 </script>
