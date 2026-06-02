@@ -42,7 +42,7 @@
 
   @media (max-width: 768px) {
     .burger { display: block; }
-    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(250,247,244,0.98); flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; overflow-y: auto; }
+    .nav-links { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; height: calc(100vh - 70px); background: rgba(250,247,244,0.98); flex-direction: column; gap: 0; padding: 0; display: none; z-index: 9998; overflow-y: auto; }
     .nav-links.active { display: flex; }
     .nav-links li { border-bottom: 1px solid var(--border); }
     .nav-links li a { display: block; padding: 20px 28px; font-size: 1rem; }
