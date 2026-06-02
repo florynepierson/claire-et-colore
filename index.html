@@ -243,7 +243,7 @@
   .cookie-btn-refuse:hover { color: var(--cream); border-color: rgba(245,240,234,0.6); }
   @media (max-width: 600px) { .cookie-banner { padding: 18px 20px; flex-direction: column; align-items: flex-start; } .cookie-buttons { width: 100%; } .cookie-btn-accept, .cookie-btn-refuse { flex: 1; text-align: center; } }
 
-  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 1; }
+  .float-buttons { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 9990; transition: bottom 0.4s ease; }
   .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.25s, box-shadow 0.25s; font-size: 1.3rem; }
   .float-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
   .float-wa { background: #25D366; }
@@ -255,7 +255,6 @@
 
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
-    .nav-links { display: none; }
     .services-grid { grid-template-columns: 1fr; }
     .booking-options { grid-template-columns: 1fr; }
     .reviews-grid { grid-template-columns: 1fr; }
@@ -777,6 +776,24 @@ const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
 function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
+// Ferme le menu burger au clic sur un lien
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('active');
+  });
+});
+// Remonte les boutons flottants quand le banner cookie est visible
+function updateFloatButtonsPosition() {
+  var banner = document.getElementById('cookieBanner');
+  var floatBtns = document.querySelector('.float-buttons');
+  if (!banner || !floatBtns) return;
+  if (!banner.classList.contains('hidden')) {
+    var bannerH = banner.offsetHeight;
+    floatBtns.style.bottom = (bannerH + 12) + 'px';
+  } else {
+    floatBtns.style.bottom = '28px';
+  }
+}
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -786,9 +803,12 @@ function openPrivacy() { document.getElementById('privacyOverlay').classList.add
 function closePrivacy() { document.getElementById('privacyOverlay').classList.remove('active'); document.body.style.overflow = ''; }
 function closePrivacyOnOverlay(e) { if (e.target === document.getElementById('privacyOverlay')) closePrivacy(); }
 
-function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); }
-function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); }
-window.addEventListener('load', function() { if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); } });
+function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); updateFloatButtonsPosition(); }
+function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); updateFloatButtonsPosition(); }
+window.addEventListener('load', function() {
+  if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); }
+  requestAnimationFrame(function() { requestAnimationFrame(updateFloatButtonsPosition); });
+});
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
 </script>
