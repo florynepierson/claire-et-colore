@@ -746,17 +746,7 @@ async function submitBooking() {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
-      const msg = encodeURIComponent('Bonjour Claire ! Je souhaite prendre rendez-vous.
-
-Nom : ' + fname + ' ' + lname + '
-Téléphone : ' + phone + '
-Prestation : ' + service + '
-Date souhaitée : ' + date + (time ? '
-Créneau : ' + time : '') + (message ? '
-
-Message : ' + message : '') + '
-
-Merci !');
+      const msg = encodeURIComponent('Bonjour Claire ! Je souhaite prendre rendez-vous.\n\nNom : ' + fname + ' ' + lname + '\nTéléphone : ' + phone + '\nPrestation : ' + service + '\nDate souhaitée : ' + date + (time ? '\nCréneau : ' + time : '') + (message ? '\n\nMessage : ' + message : '') + '\n\nMerci !');
       window.open('https://wa.me/33631220573?text=' + msg, '_blank');
       document.getElementById('bookingFormContent').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
@@ -775,14 +765,7 @@ Merci !');
 const dateInput = document.getElementById('date');
 if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
-function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('active');
-}
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.remove('active');
-  });
-});
+function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
 
 function openLegal() { document.getElementById('legalOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLegal() { document.getElementById('legalOverlay').classList.remove('active'); document.body.style.overflow = ''; }
