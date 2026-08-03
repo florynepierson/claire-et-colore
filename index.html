@@ -63,7 +63,6 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
@@ -221,7 +220,16 @@
   .booking-option-icon { font-size: 1.5rem; margin-bottom: 4px; }
   .booking-option-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--brown); }
   .booking-option-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .planity-cta { background: var(--warm-white); border: 1px solid var(--gold); border-radius: 4px; padding: 44px 32px; margin: 0 auto; text-align: center; box-shadow: 0 10px 30px rgba(74,55,40,0.07); }
+  .planity-cta-icon { font-size: 2rem; margin-bottom: 12px; }
+  .planity-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--brown); margin-bottom: 12px; }
+  .planity-cta p { font-family: 'Nunito', sans-serif; font-size: 0.92rem; color: var(--text-light); line-height: 1.6; margin-bottom: 26px; }
+  .planity-cta .btn-primary { display: inline-block; }
+  .planity-cta-note { font-size: 0.75rem !important; margin: 18px 0 0 !important; }
+  @media (max-width: 600px) { .planity-cta { padding: 32px 20px; } }
+
   .booking-form { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 40px; text-align: left; margin-top: 20px; }
+  .booking-form .form-intro { font-family: 'Nunito', sans-serif; font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 24px; }
   .booking-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--brown); margin-bottom: 28px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
   .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
@@ -521,10 +529,20 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
   <div class="reservation-inner">
     <p class="section-label">Rendez-vous</p>
     <h2 class="section-title">Réserver <em>votre séance</em></h2>
-    <p class="section-sub">Remplissez le formulaire ci-dessous ou contactez-moi directement. Je vous confirme votre créneau dans les plus brefs délais.</p>
+    <p class="section-sub">Réservez votre créneau en ligne, 24h/24, en choisissant votre prestation et votre horaire. Vous pouvez aussi me contacter directement.</p>
+
+    <div class="planity-cta">
+      <div class="planity-cta-icon">🗓️</div>
+      <h3>Réservation en ligne</h3>
+      <p>Consultez mes disponibilités en temps réel et confirmez votre rendez-vous en quelques clics.</p>
+      <a href="https://www.planity.com/claire-et-colore-51100-reims" target="_blank" rel="noopener" class="btn-primary">Réserver sur Planity</a>
+      <p class="planity-cta-note">Confirmation immédiate &middot; Rappel automatique avant votre séance</p>
+    </div>
+
     <div class="booking-form">
-      <h3>Demande de réservation en ligne</h3>
+      <h3>Une question avant de réserver ?</h3>
       <div id="bookingFormContent">
+        <p class="form-intro">Nail art sur mesure, première visite, doute sur la prestation à choisir&nbsp;: écrivez-moi, je vous réponds rapidement.</p>
         <div class="form-row">
           <div class="form-group"><label>Prénom *</label><input type="text" id="fname" placeholder="Votre prénom" required></div>
           <div class="form-group"><label>Nom *</label><input type="text" id="lname" placeholder="Votre nom" required></div>
@@ -533,41 +551,12 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
           <div class="form-group"><label>Téléphone *</label><input type="tel" id="phone" placeholder="06 00 00 00 00" required></div>
           <div class="form-group"><label>E-mail</label><input type="email" id="email" placeholder="votre@email.fr"></div>
         </div>
-        <div class="form-group">
-          <label>Prestation souhaitée *</label>
-          <select id="service">
-            <option value="">— Sélectionner —</option>
-            <optgroup label="Mains">
-              <option>Manucure sans vernis — 30 €</option>
-              <option>Gainage / Remplissage gel — 60 €</option>
-              <option>Pose complète aux chablons — 70 €</option>
-              <option>Dépose et soin — 25 €</option>
-            </optgroup>
-            <optgroup label="Pieds">
-              <option>Pédicure + soin anti-callosités — 55 €</option>
-              <option>Pose de semi-permanent — 45 €</option>
-              <option>Soin complet + semi-permanent — 70 €</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>Date souhaitée *</label><input type="date" id="date"></div>
-          <div class="form-group">
-            <label>Créneau préféré</label>
-            <select id="time">
-              <option value="">— Créneau —</option>
-              <option>Matin (9h–12h)</option>
-              <option>Après-midi (12h–16h)</option>
-              <option>Fin de journée (16h–19h)</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group"><label>Message (optionnel)</label><textarea id="message" placeholder="Nail art souhaité, première visite, questions…"></textarea></div>
-        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="submitBooking()">Envoyer ma demande</button>
+        <div class="form-group"><label>Votre question *</label><textarea id="message" placeholder="Nail art souhaité, première visite, questions…" required></textarea></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="submitBooking()">Envoyer ma question</button>
       </div>
       <div class="form-success" id="formSuccess">
         <div class="checkmark">🌿</div>
-        <p>Merci pour votre demande !<br>Claire vous contactera très vite pour confirmer votre créneau.</p>
+        <p>Merci pour votre message !<br>Claire vous répond très vite.</p>
       </div>
     </div>
   </div>
@@ -749,7 +738,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     </div>
     <div class="legal-block">
       <h3>Services tiers</h3>
-      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive) et Formspree (traitement des demandes de réservation). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
+      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive), Planity (réservation en ligne) et Formspree (traitement des demandes de contact). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
     </div>
     <div class="legal-block">
       <h3>Vos droits</h3>
@@ -760,7 +749,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
 
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    Ce site utilise Google Fonts, Google Maps et Formspree qui peuvent déposer des cookies. Aucun cookie publicitaire n'est utilisé.
+    Ce site utilise Google Fonts, Google Maps, Planity et Formspree qui peuvent déposer des cookies. Aucun cookie publicitaire n'est utilisé.
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
@@ -785,15 +774,12 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
 async function submitBooking() {
   const fname = document.getElementById('fname').value;
   const phone = document.getElementById('phone').value;
-  const service = document.getElementById('service').value;
-  const date = document.getElementById('date').value;
-  if (!fname || !phone || !service || !date) {
-    alert('Merci de remplir les champs obligatoires (prénom, téléphone, prestation, date).');
+  const message = document.getElementById('message').value;
+  if (!fname || !phone || !message) {
+    alert('Merci de remplir les champs obligatoires (prénom, téléphone, question).');
     return;
   }
   const lname = document.getElementById('lname').value;
-  const time = document.getElementById('time').value;
-  const message = document.getElementById('message').value;
 
   const btn = document.querySelector('#bookingFormContent .btn-primary');
   btn.disabled = true;
@@ -804,10 +790,7 @@ async function submitBooking() {
   formData.append('Nom', lname);
   formData.append('Téléphone', phone);
   formData.append('Email', document.getElementById('email').value);
-  formData.append('Prestation', service);
-  formData.append('Date souhaitée', date);
-  formData.append('Créneau', time);
-  formData.append('Message', message);
+  formData.append('Question', message);
 
   try {
     const res = await fetch('https://formspree.io/f/xwvzngyw', {
@@ -816,24 +799,21 @@ async function submitBooking() {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
-      const msg = encodeURIComponent('Bonjour Claire ! Je souhaite prendre rendez-vous.\n\nNom : ' + fname + ' ' + lname + '\nTéléphone : ' + phone + '\nPrestation : ' + service + '\nDate souhaitée : ' + date + (time ? '\nCréneau : ' + time : '') + (message ? '\n\nMessage : ' + message : '') + '\n\nMerci !');
+      const msg = encodeURIComponent('Bonjour Claire ! J\'ai une question.\n\nNom : ' + fname + ' ' + lname + '\nTéléphone : ' + phone + '\n\n' + message + '\n\nMerci !');
       window.open('https://wa.me/33631220573?text=' + msg, '_blank');
       document.getElementById('bookingFormContent').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     } else {
       alert('Une erreur est survenue. Merci de me contacter directement par WhatsApp ou téléphone.');
       btn.disabled = false;
-      btn.textContent = 'Envoyer ma demande';
+      btn.textContent = 'Envoyer ma question';
     }
   } catch(e) {
     alert('Erreur réseau. Merci de me contacter directement par WhatsApp ou téléphone.');
     btn.disabled = false;
-    btn.textContent = 'Envoyer ma demande';
+    btn.textContent = 'Envoyer ma question';
   }
 }
-
-const dateInput = document.getElementById('date');
-if (dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.min = today; }
 
 function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
 
