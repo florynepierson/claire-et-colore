@@ -16,6 +16,22 @@
 <meta name="twitter:title" content="Prothésiste ongulaire à Reims | Claire & Coloré">
 <meta name="twitter:description" content="Prothésiste ongulaire à Reims — manucure russe, pose gel, nail art minimaliste. Réservation en ligne.">
 <meta name="twitter:image" content="https://claireetcolore.fr/images/manucure_coquelicot.jpeg">
+<script>
+  // Analytics is loaded only after explicit cookie consent.
+  window.dataLayer = window.dataLayer || [];
+  window.__analyticsLoaded = false;
+  function loadAnalytics() {
+    if (window.__analyticsLoaded) return;
+    window.__analyticsLoaded = true;
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-N6Z2BYZN0K');
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-N6Z2BYZN0K';
+    document.head.appendChild(script);
+  }
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -535,7 +551,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
       <div class="planity-cta-icon">🗓️</div>
       <h3>Réservation en ligne</h3>
       <p>Consultez mes disponibilités en temps réel et confirmez votre rendez-vous en quelques clics.</p>
-      <a href="https://www.planity.com/claire-et-colore-51100-reims" target="_blank" rel="noopener" class="btn-primary">Réserver sur Planity</a>
+      <a id="planity-link" href="https://www.planity.com/claire-et-colore-51100-reims" target="_blank" rel="noopener" class="btn-primary">Réserver sur Planity</a>
       <p class="planity-cta-note">Confirmation immédiate &middot; Rappel automatique avant votre séance</p>
     </div>
 
@@ -730,7 +746,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     </div>
     <div class="legal-block">
       <h3>Données collectées</h3>
-      <p>Lors de l'utilisation du formulaire de réservation, les données suivantes peuvent être collectées : prénom, nom, numéro de téléphone, adresse e-mail. Ces données sont utilisées uniquement pour traiter votre demande de rendez-vous.</p>
+      <p>Lors de l'utilisation du formulaire de contact, les données suivantes peuvent être collectées : prénom, nom, numéro de téléphone, adresse e-mail. Ces données sont utilisées uniquement pour répondre à votre question.</p>
     </div>
     <div class="legal-block">
       <h3>Finalité et durée de conservation</h3>
@@ -738,7 +754,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     </div>
     <div class="legal-block">
       <h3>Services tiers</h3>
-      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive), Planity (réservation en ligne) et Formspree (traitement des demandes de contact). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
+      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive), Planity (réservation en ligne), Formspree (traitement des demandes de contact) et Google Analytics 4 (mesure d'audience et des clics vers Planity, uniquement après consentement). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
     </div>
     <div class="legal-block">
       <h3>Vos droits</h3>
@@ -749,7 +765,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
 
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    Ce site utilise Google Fonts, Google Maps, Planity et Formspree qui peuvent déposer des cookies. Aucun cookie publicitaire n'est utilisé.
+    Ce site utilise Google Fonts, Google Maps, Planity, Formspree et Google Analytics 4, qui peuvent déposer des cookies. Les statistiques ne sont activées qu'avec votre accord. Aucun cookie publicitaire n'est utilisé.
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
@@ -831,11 +847,21 @@ function floatUp() {
   if (!b || !f) return;
   f.style.bottom = b.classList.contains('hidden') ? '28px' : (b.offsetHeight + 12) + 'px';
 }
-function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
+function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); loadAnalytics(); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
 function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
 window.addEventListener('load', function() {
+  if (localStorage.getItem('cookieConsent') === 'accepted') { loadAnalytics(); }
   if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); }
   setTimeout(floatUp, 100);
+});
+
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('#planity-link');
+  if (!link || localStorage.getItem('cookieConsent') !== 'accepted' || !window.gtag) return;
+  window.gtag('event', 'planity_click', {
+    link_url: link.href,
+    link_text: link.textContent.trim()
+  });
 });
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
