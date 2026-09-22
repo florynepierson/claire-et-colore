@@ -288,6 +288,9 @@
   .contact-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text); text-decoration: none; }
   .contact-value:hover { color: var(--brown-light); }
   .map-wrapper { margin-top: 36px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
+  .map-placeholder { height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; background: var(--warm-white); cursor: pointer; }
+  .map-placeholder p { font-family: 'Nunito', sans-serif; font-size: 0.85rem; color: var(--text-light); line-height: 1.6; max-width: 340px; margin: 0; }
+  .map-placeholder .btn-outline { cursor: pointer; }
 
   footer { background: var(--brown); color: var(--cream); padding: 50px 40px 30px; text-align: center; }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.06em; margin-bottom: 12px; }
@@ -385,7 +388,7 @@
 <section id="qui-suis-je" style="background: var(--cream);">
   <div class="qui-wrapper">
     <div class="qui-photo-wrap">
-      <img src="/images/claire.jpeg" alt="Claire, prothésiste ongulaire à Reims" />
+      <img src="/images/claire.jpeg" loading="lazy" decoding="async" alt="Claire, prothésiste ongulaire à Reims" />
     </div>
     <div class="qui-content">
       <p class="section-label">Mon histoire</p>
@@ -427,12 +430,12 @@
       </div>
     </div>
     <div class="atelier-photo">
-      <img src="/images/manucure_coquelicot.jpeg" alt="Pose gel coquelicot — manucure russe Reims" />
+      <img src="/images/manucure_coquelicot.jpeg" loading="lazy" decoding="async" alt="Pose gel coquelicot — manucure russe Reims" />
     </div>
   </div>
   <div class="fusion-wrapper">
     <div class="fusion-photo salon">
-      <img src="/images/salon.jpeg" alt="Le salon Claire &amp; Coloré" />
+      <img src="/images/salon.jpeg" loading="lazy" decoding="async" alt="Le salon Claire &amp; Coloré" />
     </div>
     <div class="fusion-texts">
       <div class="fusion-block">
@@ -447,7 +450,7 @@
       </div>
     </div>
     <div class="fusion-photo">
-      <img src="/images/hygiene.jpeg" alt="Outils stérilisés" />
+      <img src="/images/hygiene.jpeg" loading="lazy" decoding="async" alt="Outils stérilisés" />
     </div>
   </div>
 </section>
@@ -456,15 +459,15 @@
   <div class="container">
     <h2 class="section-title">Galerie <em>photos</em></h2>
     <div class="gallery-strip">
-      <div class="gallery-item"><img src="/images/manucure_bleue.jpg" alt="Pose gel bleu — prothésiste ongulaire Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_rose_gold.jpg" alt="Manucure rose gold — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_blanche.jpeg" alt="Manucure blanche naturelle Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_rose.jpg" alt="Pose gel rose — manucure à Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_fleurs.jpeg" alt="Nail art fleurs — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_rouge.jpeg" alt="Pose gel rouge — prothésiste ongulaire Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_jaune.jpeg" alt="Nail art minimaliste jaune Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_dégradé_fleur.jpg" alt="Nail art dégradé fleur — manucure Reims" oncontextmenu="return false" draggable="false" /></div>
-      <div class="gallery-item"><img src="/images/manucure_nude.jpeg" alt="Manucure nude naturelle — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_bleue.jpg" loading="lazy" decoding="async" alt="Pose gel bleu — prothésiste ongulaire Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_rose_gold.jpg" loading="lazy" decoding="async" alt="Manucure rose gold — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_blanche.jpeg" loading="lazy" decoding="async" alt="Manucure blanche naturelle Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_rose.jpg" loading="lazy" decoding="async" alt="Pose gel rose — manucure à Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_fleurs.jpeg" loading="lazy" decoding="async" alt="Nail art fleurs — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_rouge.jpeg" loading="lazy" decoding="async" alt="Pose gel rouge — prothésiste ongulaire Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_jaune.jpeg" loading="lazy" decoding="async" alt="Nail art minimaliste jaune Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_dégradé_fleur.jpg" loading="lazy" decoding="async" alt="Nail art dégradé fleur — manucure Reims" oncontextmenu="return false" draggable="false" /></div>
+      <div class="gallery-item"><img src="/images/manucure_nude.jpeg" loading="lazy" decoding="async" alt="Manucure nude naturelle — onglerie Reims" oncontextmenu="return false" draggable="false" /></div>
     </div>
   </div>
 </section>
@@ -683,8 +686,12 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     <div>
       <p class="section-label">Nous trouver</p>
       <h2 class="section-title"><em>L'adresse</em></h2>
-      <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.941896743598!2d4.026328299999999!3d49.220628999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e9759c119633a5%3A0x9bda08c162bc9adc!2sclaire%20et%20colore!5e0!3m2!1sfr!2sfr!4v1776245679482!5m2!1sfr!2sfr" width="100%" height="380" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-wrapper" id="mapWrapper" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.941896743598!2d4.026328299999999!3d49.220628999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e9759c119633a5%3A0x9bda08c162bc9adc!2sclaire%20et%20colore!5e0!3m2!1sfr!2sfr!4v1776245679482!5m2!1sfr!2sfr">
+        <div class="map-placeholder" id="mapPlaceholder" onclick="loadMap()">
+          <div style="font-size:1.6rem">📍</div>
+          <p>5 rue Jean de la Bruyère, 51100 Reims<br>La carte est fournie par Google Maps, qui peut déposer des cookies.</p>
+          <span class="btn-outline">Afficher la carte</span>
+        </div>
       </div>
     </div>
   </div>
@@ -754,7 +761,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
     </div>
     <div class="legal-block">
       <h3>Services tiers</h3>
-      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive), Planity (réservation en ligne), Formspree (traitement des demandes de contact) et Google Analytics 4 (mesure d'audience et des clics vers Planity, uniquement après consentement). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
+      <p>Ce site utilise Google Fonts (chargement de polices), Google Maps (carte interactive, chargée uniquement après votre consentement ou un clic explicite sur « Afficher la carte »), Planity (réservation en ligne), Formspree (traitement des demandes de contact) et Google Analytics 4 (mesure d'audience et des clics de contact — Planity, téléphone, WhatsApp, e-mail, réseaux sociaux — uniquement après consentement). Ces services peuvent collecter des données selon leurs propres politiques de confidentialité. Aucun cookie publicitaire n'est utilisé sur ce site.</p>
     </div>
     <div class="legal-block">
       <h3>Vos droits</h3>
@@ -765,7 +772,7 @@ document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'I
 
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    Ce site utilise Google Fonts, Google Maps, Planity, Formspree et Google Analytics 4, qui peuvent déposer des cookies. Les statistiques ne sont activées qu'avec votre accord. Aucun cookie publicitaire n'est utilisé.
+    Ce site utilise Google Fonts, Google Maps, Planity, Formspree et Google Analytics 4, qui peuvent déposer des cookies. Les statistiques et la carte ne sont activées qu'avec votre accord. Aucun cookie publicitaire n'est utilisé.
     <button onclick="openPrivacy()">En savoir plus</button>
   </p>
   <div class="cookie-buttons">
@@ -815,6 +822,7 @@ async function submitBooking() {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      mcEvent('generate_lead', { lead_source: 'formulaire de contact' });
       const msg = encodeURIComponent('Bonjour Claire ! J\'ai une question.\n\nNom : ' + fname + ' ' + lname + '\nTéléphone : ' + phone + '\n\n' + message + '\n\nMerci !');
       window.open('https://wa.me/33631220573?text=' + msg, '_blank');
       document.getElementById('bookingFormContent').style.display = 'none';
@@ -847,22 +855,66 @@ function floatUp() {
   if (!b || !f) return;
   f.style.bottom = b.classList.contains('hidden') ? '28px' : (b.offsetHeight + 12) + 'px';
 }
-function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); loadAnalytics(); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
+// Google Maps is a third party that may set cookies: loaded on consent or on explicit click.
+function loadMap() {
+  var wrap = document.getElementById('mapWrapper');
+  if (!wrap || wrap.querySelector('iframe')) return;
+  var frame = document.createElement('iframe');
+  frame.src = wrap.dataset.mapSrc;
+  frame.width = '100%';
+  frame.height = '380';
+  frame.loading = 'lazy';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'no-referrer-when-downgrade';
+  frame.style.cssText = 'border:0;display:block;';
+  frame.title = 'Carte — Claire & Coloré, 5 rue Jean de la Bruyère, Reims';
+  wrap.innerHTML = '';
+  wrap.appendChild(frame);
+}
+
+function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); loadAnalytics(); loadMap(); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
 function refuseCookies() { localStorage.setItem('cookieConsent', 'refused'); document.getElementById('cookieBanner').classList.add('hidden'); floatUp(); }
 window.addEventListener('load', function() {
-  if (localStorage.getItem('cookieConsent') === 'accepted') { loadAnalytics(); }
+  if (localStorage.getItem('cookieConsent') === 'accepted') { loadAnalytics(); loadMap(); }
   if (localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').classList.add('hidden'); }
   setTimeout(floatUp, 100);
 });
 
+// --- Mesure des clics de contact (GA4, uniquement après consentement) ---
+function mcEvent(name, params) {
+  if (localStorage.getItem('cookieConsent') !== 'accepted' || !window.gtag) return;
+  window.gtag('event', name, params || {});
+}
+
+// Chaque canal de contact a son propre événement, pour les distinguer dans GA4.
+var CONTACT_CHANNELS = [
+  { event: 'planity_click',   match: function(h) { return h.indexOf('planity.com') > -1; } },
+  { event: 'whatsapp_click',  match: function(h) { return h.indexOf('wa.me') > -1; } },
+  { event: 'phone_click',     match: function(h) { return h.indexOf('tel:') === 0; } },
+  { event: 'email_click',     match: function(h) { return h.indexOf('mailto:') === 0; } },
+  { event: 'instagram_click', match: function(h) { return h.indexOf('instagram.com') > -1; } },
+  { event: 'facebook_click',  match: function(h) { return h.indexOf('facebook.com') > -1; } }
+];
+
 document.addEventListener('click', function(e) {
-  var link = e.target.closest('#planity-link');
-  if (!link || localStorage.getItem('cookieConsent') !== 'accepted' || !window.gtag) return;
-  window.gtag('event', 'planity_click', {
-    link_url: link.href,
-    link_text: link.textContent.trim()
-  });
-});
+  var link = e.target.closest('a[href]');
+  if (!link) return;
+  var href = link.getAttribute('href') || '';
+  for (var i = 0; i < CONTACT_CHANNELS.length; i++) {
+    if (CONTACT_CHANNELS[i].match(href)) {
+      mcEvent(CONTACT_CHANNELS[i].event, {
+        contact_url: link.href,
+        contact_label: (link.textContent || link.title || '').trim().slice(0, 100) || 'sans libellé',
+        contact_source: link.closest('.float-buttons') ? 'bouton flottant'
+                      : link.closest('footer') ? 'pied de page'
+                      : link.closest('#reservation') ? 'section réservation'
+                      : link.closest('#info') ? 'section contact'
+                      : 'page'
+      });
+      return;
+    }
+  }
+}, true);
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLegal(); closePrivacy(); } });
 </script>
